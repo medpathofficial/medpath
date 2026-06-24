@@ -1,1 +1,1202 @@
+/* ═══════════════════════════════════════════
+   MEDPATH — COMPLETE STYLESHEET
+   Version: 1.0
+   Design system: Calm, Professional, Focused
+   Font: Inter
+   Primary: #059669 (Emerald)
+   Secondary: #2563EB (Medical Blue)
+═══════════════════════════════════════════ */
 
+
+/* ═══════════════════════════════════════════
+   SECTION 1 — DESIGN TOKENS (LIGHT MODE)
+═══════════════════════════════════════════ */
+
+:root {
+
+  /* Brand */
+  --color-primary:           #059669;
+  --color-primary-light:     #D1FAE5;
+  --color-primary-dark:      #047857;
+  --color-primary-text:      #065F46;
+  --color-secondary:         #2563EB;
+  --color-secondary-light:   #DBEAFE;
+
+  /* Backgrounds */
+  --color-bg-app:            #F9FAFB;
+  --color-bg-card:           #FFFFFF;
+  --color-bg-sheet:          #FFFFFF;
+  --color-bg-nav:            #FFFFFF;
+
+  /* Text */
+  --color-text-primary:      #111827;
+  --color-text-secondary:    #6B7280;
+  --color-text-muted:        #9CA3AF;
+
+  /* Borders */
+  --color-border:            #E5E7EB;
+  --color-divider:           #F3F4F6;
+
+  /* Status */
+  --color-success:           #059669;
+  --color-warning:           #D97706;
+  --color-error:             #DC2626;
+  --color-neutral:           #6B7280;
+
+  /* Topic Status */
+  --color-not-started:       #9CA3AF;
+  --color-studied:           #059669;
+  --color-revision-due:      #D97706;
+
+  /* Risk Status */
+  --color-healthy:           #059669;
+  --color-monitor:           #D97706;
+  --color-at-risk:           #DC2626;
+  --color-critical:          #7C3AED;
+
+  /* Typography */
+  --font-family:             'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --font-size-display:       28px;
+  --font-size-h1:            24px;
+  --font-size-h2:            20px;
+  --font-size-h3:            17px;
+  --font-size-body:          15px;
+  --font-size-small:         13px;
+  --font-size-tiny:          11px;
+
+  --font-weight-regular:     400;
+  --font-weight-medium:      500;
+  --font-weight-semibold:    600;
+  --font-weight-bold:        700;
+
+  --line-height-heading:     1.3;
+  --line-height-body:        1.6;
+  --line-height-small:       1.5;
+
+  /* Spacing */
+  --space-1:                 4px;
+  --space-2:                 8px;
+  --space-3:                 12px;
+  --space-4:                 16px;
+  --space-5:                 20px;
+  --space-6:                 24px;
+  --space-8:                 32px;
+  --space-12:                48px;
+
+  /* Layout */
+  --page-padding-x:          16px;
+  --card-padding:            20px;
+  --nav-height:              64px;
+  --top-safe:                48px;
+
+  /* Radius */
+  --radius-card:             16px;
+  --radius-button:           12px;
+  --radius-input:            12px;
+  --radius-sheet-top:        24px;
+  --radius-chip:             12px;
+
+  /* Shadows */
+  --shadow-card:             0 1px 3px rgba(0,0,0,0.08);
+  --shadow-button-primary:   0 4px 12px rgba(5,150,105,0.3);
+  --shadow-chip-active:      0 1px 3px rgba(0,0,0,0.1);
+
+  /* Animations */
+  --duration-micro:          100ms;
+  --duration-state:          150ms;
+  --duration-page:           220ms;
+  --duration-sheet-open:     280ms;
+  --duration-sheet-close:    220ms;
+  --duration-fade-in:        200ms;
+  --duration-fade-out:       150ms;
+  --duration-pulse:          1500ms;
+
+  --ease-standard:           cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-enter:              cubic-bezier(0.0, 0.0, 0.2, 1);
+  --ease-exit:               cubic-bezier(0.4, 0.0, 1, 1);
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 2 — DARK MODE TOKENS
+═══════════════════════════════════════════ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg-app:            #111827;
+    --color-bg-card:           #1F2937;
+    --color-bg-sheet:          #1F2937;
+    --color-bg-nav:            #1F2937;
+
+    --color-text-primary:      #F9FAFB;
+    --color-text-secondary:    #9CA3AF;
+    --color-text-muted:        #6B7280;
+
+    --color-border:            #374151;
+    --color-divider:           #1F2937;
+
+    --color-primary:           #10B981;
+    --color-primary-light:     #064E3B;
+    --color-primary-text:      #6EE7B7;
+
+    --color-warning:           #F59E0B;
+    --color-error:             #EF4444;
+  }
+}
+
+/* Force light mode */
+[data-theme="light"] {
+  --color-bg-app:            #F9FAFB;
+  --color-bg-card:           #FFFFFF;
+  --color-bg-sheet:          #FFFFFF;
+  --color-bg-nav:            #FFFFFF;
+  --color-text-primary:      #111827;
+  --color-text-secondary:    #6B7280;
+  --color-text-muted:        #9CA3AF;
+  --color-border:            #E5E7EB;
+  --color-divider:           #F3F4F6;
+  --color-primary:           #059669;
+  --color-primary-light:     #D1FAE5;
+  --color-primary-text:      #065F46;
+  --color-warning:           #D97706;
+  --color-error:             #DC2626;
+}
+
+/* Force dark mode */
+[data-theme="dark"] {
+  --color-bg-app:            #111827;
+  --color-bg-card:           #1F2937;
+  --color-bg-sheet:          #1F2937;
+  --color-bg-nav:            #1F2937;
+  --color-text-primary:      #F9FAFB;
+  --color-text-secondary:    #9CA3AF;
+  --color-text-muted:        #6B7280;
+  --color-border:            #374151;
+  --color-divider:           #1F2937;
+  --color-primary:           #10B981;
+  --color-primary-light:     #064E3B;
+  --color-primary-text:      #6EE7B7;
+  --color-warning:           #F59E0B;
+  --color-error:             #EF4444;
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 3 — RESET AND BASE
+═══════════════════════════════════════════ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-app);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: var(--font-family);
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+input, textarea {
+  font-family: var(--font-family);
+  outline: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img, svg {
+  display: block;
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 4 — APP SHELL
+═══════════════════════════════════════════ */
+
+.app-shell {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-app);
+  overflow: hidden;
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 5 — PAGES
+═══════════════════════════════════════════ */
+
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: var(--nav-height);
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition:
+    opacity var(--duration-page) var(--ease-standard),
+    transform var(--duration-page) var(--ease-standard);
+}
+
+.page.active {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.page-content {
+  padding: var(--top-safe) var(--page-padding-x) calc(var(--space-6) + env(safe-area-inset-bottom));
+  min-height: 100%;
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 6 — BOTTOM NAVIGATION
+═══════════════════════════════════════════ */
+
+.bottom-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  background-color: var(--color-bg-nav);
+  border-top: 1px solid var(--color-divider);
+  display: flex;
+  align-items: stretch;
+  padding-bottom: env(safe-area-inset-bottom);
+  z-index: 100;
+}
+
+.nav-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: var(--color-text-muted);
+  transition: color var(--duration-state) var(--ease-standard);
+  padding: var(--space-2) 0;
+}
+
+.nav-tab.active {
+  color: var(--color-primary);
+}
+
+.nav-tab:active {
+  opacity: 0.7;
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  transition: stroke var(--duration-state) var(--ease-standard);
+}
+
+.nav-tab.active .nav-icon {
+  stroke-width: 2.5;
+}
+
+.nav-label {
+  font-size: var(--font-size-tiny);
+  font-weight: var(--font-weight-regular);
+  line-height: 1;
+}
+
+.nav-tab.active .nav-label {
+  font-weight: var(--font-weight-semibold);
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 7 — CARDS
+═══════════════════════════════════════════ */
+
+.card {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: var(--card-padding);
+}
+
+.card + .card {
+  margin-top: var(--space-3);
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 8 — BOTTOM SHEET
+═══════════════════════════════════════════ */
+
+.sheet-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 200;
+  opacity: 0;
+  transition: opacity var(--duration-sheet-open) var(--ease-standard);
+}
+
+.sheet-overlay.visible {
+  opacity: 1;
+}
+
+.sheet-overlay.hidden {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.bottom-sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-bg-sheet);
+  border-radius: var(--radius-sheet-top) var(--radius-sheet-top) 0 0;
+  z-index: 300;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform var(--duration-sheet-open) var(--ease-enter);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.bottom-sheet.open {
+  transform: translateY(0);
+}
+
+.bottom-sheet.closing {
+  transform: translateY(100%);
+  transition: transform var(--duration-sheet-close) var(--ease-exit);
+}
+
+.sheet-handle {
+  width: 32px;
+  height: 4px;
+  background-color: var(--color-border);
+  border-radius: 2px;
+  margin: var(--space-2) auto var(--space-3);
+  flex-shrink: 0;
+}
+
+.sheet-content {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 var(--page-padding-x) var(--space-6);
+  flex: 1;
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 9 — BUTTONS
+═══════════════════════════════════════════ */
+
+/* Primary Button */
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 52px;
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border-radius: var(--radius-button);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+  padding: 0 var(--space-6);
+  transition: background-color var(--duration-micro) var(--ease-standard),
+              opacity var(--duration-micro) var(--ease-standard);
+}
+
+.btn-primary:active {
+  background-color: var(--color-primary-dark);
+}
+
+.btn-primary:disabled,
+.btn-primary.submitting {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Secondary Button */
+.btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 52px;
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-button);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  padding: 0 var(--space-6);
+  transition: background-color var(--duration-micro) var(--ease-standard);
+}
+
+.btn-secondary:active {
+  background-color: var(--color-bg-app);
+}
+
+/* Ghost Button */
+.btn-ghost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  background-color: transparent;
+  color: var(--color-primary);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  padding: 0 var(--space-4);
+  transition: opacity var(--duration-micro) var(--ease-standard);
+}
+
+.btn-ghost:active {
+  opacity: 0.6;
+}
+
+/* Destructive Button */
+.btn-destructive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  background-color: transparent;
+  color: var(--color-error);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  padding: 0 var(--space-4);
+}
+
+.btn-destructive:active {
+  opacity: 0.6;
+}
+
+/* Button spacing */
+.btn-primary + .btn-secondary,
+.btn-primary + .btn-ghost,
+.btn-secondary + .btn-ghost {
+  margin-top: var(--space-3);
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 10 — INPUT FIELDS
+═══════════════════════════════════════════ */
+
+.input-field {
+  width: 100%;
+  height: 52px;
+  background-color: var(--color-bg-app);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-input);
+  padding: 0 var(--space-4);
+  font-size: var(--font-size-body);
+  color: var(--color-text-primary);
+  transition: border-color var(--duration-state) var(--ease-standard);
+}
+
+.input-field:focus {
+  border-color: var(--color-primary);
+}
+
+.input-field::placeholder {
+  color: var(--color-text-muted);
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 11 — RATING OPTIONS (Poor/Fair/Good/Strong)
+═══════════════════════════════════════════ */
+
+.rating-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.rating-option {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 56px;
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-bg-card);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-button);
+  font-size: var(--font-size-body);
+  color: var(--color-text-primary);
+  text-align: left;
+  transition:
+    border-color var(--duration-state) var(--ease-standard),
+    background-color var(--duration-state) var(--ease-standard);
+}
+
+.rating-option.selected {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-text);
+}
+
+.rating-option:active {
+  opacity: 0.8;
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 12 — CHIP ROW (Intensity, Theme toggles)
+═══════════════════════════════════════════ */
+
+.chip-row {
+  display: flex;
+  background-color: var(--color-divider);
+  border-radius: var(--radius-chip);
+  padding: 3px;
+  gap: 3px;
+}
+
+.chip {
+  flex: 1;
+  height: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(var(--radius-chip) - 3px);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
+  transition:
+    background-color var(--duration-state) var(--ease-standard),
+    color var(--duration-state) var(--ease-standard),
+    box-shadow var(--duration-state) var(--ease-standard);
+}
+
+.chip.active {
+  background-color: var(--color-bg-card);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+  box-shadow: var(--shadow-chip-active);
+}
+
+.chip-sublabel {
+  font-size: var(--font-size-tiny);
+  color: var(--color-text-muted);
+  margin-top: 1px;
+}
+
+.chip.active .chip-sublabel {
+  color: var(--color-text-secondary);
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 13 — TOPIC ROW (Session View, Bottom Sheet)
+═══════════════════════════════════════════ */
+
+.topic-row {
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-divider);
+  gap: var(--space-3);
+}
+
+.topic-row:last-child {
+  border-bottom: none;
+}
+
+.topic-row-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.topic-row-name {
+  font-size: var(--font-size-body);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-small);
+}
+
+.topic-row-reason {
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+  line-height: var(--line-height-small);
+}
+
+.topic-status-indicator {
+  font-size: 18px;
+  flex-shrink: 0;
+  width: 24px;
+  text-align: center;
+}
+
+.status-not-started { color: var(--color-not-started); }
+.status-studied      { color: var(--color-studied); }
+.status-revision-due { color: var(--color-revision-due); }
+
+
+/* ═══════════════════════════════════════════
+   SECTION 14 — SECTION LABELS (REVISE / VERIFY / NEW)
+═══════════════════════════════════════════ */
+
+.section-label {
+  font-size: var(--font-size-tiny);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+  margin-top: var(--space-6);
+}
+
+.section-label:first-child {
+  margin-top: 0;
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 15 — OFFLINE BANNER
+═══════════════════════════════════════════ */
+
+.offline-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background-color: var(--color-divider);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
+  z-index: 500;
+  transition: transform var(--duration-state) var(--ease-standard);
+}
+
+.offline-banner.hidden {
+  transform: translateY(-100%);
+}
+
+.offline-dot {
+  font-size: 8px;
+  color: var(--color-neutral);
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 16 — UPDATE PROMPT
+═══════════════════════════════════════════ */
+
+.update-prompt {
+  position: fixed;
+  bottom: calc(var(--nav-height) + var(--space-4));
+  left: var(--page-padding-x);
+  right: var(--page-padding-x);
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  z-index: 400;
+  transition: opacity var(--duration-fade-in) var(--ease-standard),
+              transform var(--duration-fade-in) var(--ease-standard);
+}
+
+.update-prompt.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+}
+
+.update-text {
+  font-size: var(--font-size-small);
+  color: var(--color-text-primary);
+}
+
+.update-btn {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 17 — LOADING STATES (pulse only, no spinner)
+═══════════════════════════════════════════ */
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+.loading-pulse {
+  animation: pulse var(--duration-pulse) ease-in-out infinite;
+}
+
+.skeleton {
+  background-color: var(--color-divider);
+  border-radius: var(--space-2);
+  animation: pulse var(--duration-pulse) ease-in-out infinite;
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 18 — TYPOGRAPHY HELPERS
+═══════════════════════════════════════════ */
+
+.text-display {
+  font-size: var(--font-size-display);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-heading);
+  letter-spacing: -0.02em;
+}
+
+.text-h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-heading);
+  letter-spacing: -0.02em;
+}
+
+.text-h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-heading);
+}
+
+.text-h3 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-heading);
+}
+
+.text-body {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+}
+
+.text-small {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-small);
+}
+
+.text-tiny {
+  font-size: var(--font-size-tiny);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-small);
+}
+
+.text-primary   { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-muted     { color: var(--color-text-muted); }
+.text-brand     { color: var(--color-primary); }
+.text-error     { color: var(--color-error); }
+.text-warning   { color: var(--color-warning); }
+
+.text-center { text-align: center; }
+.text-left   { text-align: left; }
+
+
+/* ═══════════════════════════════════════════
+   SECTION 19 — SPACING HELPERS
+═══════════════════════════════════════════ */
+
+.mt-1 { margin-top: var(--space-1); }
+.mt-2 { margin-top: var(--space-2); }
+.mt-3 { margin-top: var(--space-3); }
+.mt-4 { margin-top: var(--space-4); }
+.mt-5 { margin-top: var(--space-5); }
+.mt-6 { margin-top: var(--space-6); }
+.mt-8 { margin-top: var(--space-8); }
+
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-3 { margin-bottom: var(--space-3); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+
+.gap-2 { gap: var(--space-2); }
+.gap-3 { gap: var(--space-3); }
+.gap-4 { gap: var(--space-4); }
+
+
+/* ═══════════════════════════════════════════
+   SECTION 20 — LAYOUT HELPERS
+═══════════════════════════════════════════ */
+
+.flex        { display: flex; }
+.flex-col    { flex-direction: column; }
+.flex-1      { flex: 1; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center  { justify-content: center; }
+
+.hidden { display: none !important; }
+.visible { display: flex !important; }
+
+.full-width { width: 100%; }
+
+
+/* ═══════════════════════════════════════════
+   SECTION 21 — FLOATING ACTION BUTTON
+   Log Study button on Dashboard
+═══════════════════════════════════════════ */
+
+.fab {
+  position: fixed;
+  bottom: calc(var(--nav-height) + var(--space-4));
+  right: var(--page-padding-x);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-button-primary);
+  z-index: 150;
+  transition: transform var(--duration-micro) var(--ease-standard),
+              opacity var(--duration-micro) var(--ease-standard);
+}
+
+.fab:active {
+  transform: scale(0.95);
+}
+
+.fab.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fab-icon {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 22 — SECTION SWITCHER (Subjects page)
+═══════════════════════════════════════════ */
+
+.section-switcher {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: var(--space-1);
+  margin-bottom: var(--space-4);
+}
+
+.section-switcher::-webkit-scrollbar {
+  display: none;
+}
+
+.section-chip {
+  flex-shrink: 0;
+  height: 36px;
+  padding: 0 var(--space-4);
+  border-radius: 18px;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  background-color: var(--color-divider);
+  border: 1.5px solid transparent;
+  white-space: nowrap;
+  transition:
+    color var(--duration-state) var(--ease-standard),
+    background-color var(--duration-state) var(--ease-standard),
+    border-color var(--duration-state) var(--ease-standard);
+}
+
+.section-chip.active {
+  color: var(--color-primary-text);
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary);
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 23 — BREADCRUMB
+═══════════════════════════════════════════ */
+
+.breadcrumb {
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-1);
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 24 — RISK STATUS BADGES
+═══════════════════════════════════════════ */
+
+.risk-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  border-radius: 20px;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+}
+
+.risk-healthy  { background-color: var(--color-primary-light); color: var(--color-primary-text); }
+.risk-monitor  { background-color: #FEF3C7; color: #92400E; }
+.risk-at-risk  { background-color: #FEE2E2; color: #991B1B; }
+.risk-critical { background-color: #EDE9FE; color: #5B21B6; }
+
+
+/* ═══════════════════════════════════════════
+   SECTION 25 — DIVIDERS
+═══════════════════════════════════════════ */
+
+.divider {
+  height: 1px;
+  background-color: var(--color-divider);
+  margin: var(--space-4) 0;
+}
+
+.settings-section-label {
+  font-size: var(--font-size-tiny);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.settings-section-label:first-child {
+  margin-top: 0;
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 52px;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.settings-row:last-child {
+  border-bottom: none;
+}
+
+.settings-row-label {
+  font-size: var(--font-size-body);
+  color: var(--color-text-primary);
+}
+
+.settings-row-value {
+  font-size: var(--font-size-body);
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 26 — TOGGLE SWITCH
+═══════════════════════════════════════════ */
+
+.toggle {
+  position: relative;
+  width: 51px;
+  height: 31px;
+  flex-shrink: 0;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--color-border);
+  border-radius: 31px;
+  transition: background-color var(--duration-state) var(--ease-standard);
+}
+
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  height: 27px;
+  width: 27px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform var(--duration-state) var(--ease-standard);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.toggle input:checked + .toggle-slider {
+  background-color: var(--color-primary);
+}
+
+.toggle input:checked + .toggle-slider::before {
+  transform: translateX(20px);
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 27 — EMPTY STATES
+═══════════════════════════════════════════ */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-12) var(--space-6);
+  gap: var(--space-3);
+}
+
+.empty-state-title {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.empty-state-body {
+  font-size: var(--font-size-body);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-body);
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 28 — ERROR STATES
+═══════════════════════════════════════════ */
+
+.error-text {
+  font-size: var(--font-size-small);
+  color: var(--color-error);
+  margin-top: var(--space-2);
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 29 — VITALS ROW (Progress page)
+═══════════════════════════════════════════ */
+
+.vitals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.vital-card {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-4);
+}
+
+.vital-label {
+  font-size: var(--font-size-tiny);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-1);
+}
+
+.vital-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.vital-unit {
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
+  margin-left: 2px;
+}
+
+
+/* ═══════════════════════════════════════════
+   SECTION 30 — HEALTH SCORE DISPLAY
+═══════════════════════════════════════════ */
+
+.health-score-display {
+  text-align: center;
+  padding: var(--space-6) 0 var(--space-4);
+}
+
+.health-score-number {
+  font-size: 64px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.health-score-label {
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-2);
+}
